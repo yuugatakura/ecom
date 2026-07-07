@@ -89,7 +89,7 @@
       const el = document.getElementById(id);
       if (el) {
         el.textContent = CONTENT.ctaLabel;
-        el.addEventListener("click", openModal);
+        el.href = CONTENT.ctaUrl;
       }
     });
 
@@ -526,55 +526,6 @@
     compute();
   }
 
-  /* ---------- lead-gate modal ---------- */
-
-  function renderModal() {
-    const lf = CONTENT.leadForm;
-    document.getElementById("modalEyebrow").textContent = lf.eyebrow;
-    document.getElementById("modalTitle").textContent = lf.title;
-    document.getElementById("modalSub").textContent = lf.sub;
-
-    const fallback = document.getElementById("modalFallback");
-    fallback.textContent = lf.fallbackLabel;
-    fallback.href = CONTENT.ctaUrl;
-  }
-
-  let formEmbedLoaded = false;
-
-  function openModal(e) {
-    if (e) e.preventDefault();
-    const overlay = document.getElementById("modalOverlay");
-    if (!formEmbedLoaded) {
-      const iframe = document.getElementById("formEmbed");
-      iframe.dataset.tallySrc = CONTENT.formEmbedUrl;
-      if (window.Tally) {
-        window.Tally.loadEmbeds();
-      } else {
-        iframe.src = iframe.dataset.tallySrc;
-      }
-      formEmbedLoaded = true;
-    }
-    overlay.classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeModal() {
-    const overlay = document.getElementById("modalOverlay");
-    overlay.classList.remove("open");
-    document.body.style.overflow = "";
-  }
-
-  function initModal() {
-    const overlay = document.getElementById("modalOverlay");
-    document.getElementById("modalClose").addEventListener("click", closeModal);
-    overlay.addEventListener("click", (e) => {
-      if (e.target === overlay) closeModal();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && overlay.classList.contains("open")) closeModal();
-    });
-  }
-
   /* ---------- scroll reveal ---------- */
 
   function initReveal() {
@@ -600,8 +551,6 @@
   /* ---------- boot ---------- */
 
   function init() {
-    renderModal();
-    initModal();
     renderNav();
     renderHero();
     renderLeak();

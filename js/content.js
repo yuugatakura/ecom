@@ -7,7 +7,6 @@ const CONTENT = {
   brand: "Natzach",
   ctaUrl: "https://tally.so/r/VLyxeM",
   ctaLabel: "Book Free Consultation",
-  formEmbedUrl: "https://tally.so/r/VLyxeM?transparentBackground=1&formEventsForwarding=1",
   instagramUrl: "https://instagram.com/natzach.id",
 
   nav: [
@@ -104,13 +103,6 @@ const CONTENT = {
         source: "Crosstechno",
       },
     ],
-  },
-
-  leadForm: {
-    eyebrow: "Sebelum Booking",
-    title: "Isi form singkat dulu",
-    sub: "Kurang dari 5 menit. Setelah ini kita jadwalkan call 15 menit — bukan sales pitch panjang.",
-    fallbackLabel: "Form tidak muncul? Buka di tab baru →",
   },
 
   bento: {
