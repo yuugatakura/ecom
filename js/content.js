@@ -7,9 +7,8 @@ const CONTENT = {
   brand: "Natzach",
   ctaUrl: "https://forms.gle/YfDsRiTDpDApv93T7",
   ctaLabel: "Book Free Consultation",
-  whatsappNumber: "6285778139876",
+  formEmbedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfgYHrsGM7-hmVvpRjjOBUpUWM0cxRs7cvWYUms8UfdIfslfQ/viewform?embedded=true",
   instagramUrl: "https://instagram.com/natzach.id",
-  whatsappUrl: "https://wa.me/6285778139876",
 
   nav: [
     { label: "Kalkulator", href: "#kalkulator" },
@@ -21,8 +20,8 @@ const CONTENT = {
 
   hero: {
     headline: "Setiap transaksi, marketplace ambil bagian mereka dulu.",
-    sub: "Baru sisanya jadi punya kamu. Natzach bangun toko, mesin traffic, dan daftar pelanggan yang sepenuhnya kamu miliki — supaya margin yang selama ini “numpang jualan” ke marketplace, balik ke kantong kamu.",
-    ctaMicrocopy: "15 menit. Kita bahas fee yang kamu bayar sekarang, bukan pitch generik.",
+    sub: "Baru sisanya jadi punya kamu. Kami bangun toko, mesin traffic, dan daftar pelanggan yang sepenuhnya kamu miliki — supaya margin yang selama ini “numpang jualan” ke marketplace, balik ke kantong kamu.",
+    ctaMicrocopy: "Konsultasi gratis · Tanpa komitmen · Respons dalam 24 jam",
     secondaryLabel: "Lihat cara kerjanya",
     secondaryHref: "#cara-kerja",
     leak: {
@@ -40,6 +39,21 @@ const CONTENT = {
       callout: "Contoh ekstrem: kategori Fashion & Sepatu, batas komisi dinamis TikTok Shop naik 15× dari Rp40.000 jadi Rp650.000/item, efektif 18 Mei 2026. Di transaksi bernilai tinggi, potongannya bisa jauh lebih besar dari ilustrasi di atas.",
       calloutSource: "Bisnis.com, 18 Mei 2026",
     },
+  },
+
+  feeTrend: {
+    eyebrow: "Tren Biaya",
+    title: "Biaya marketplace bergerak satu arah: naik.",
+    subtitle: "Estimasi kumulatif dari kebijakan yang benar-benar terdokumentasi. Belum termasuk biaya iklan.",
+    ownedLabel: "Website Kamu",
+    ownedValue: 2.5,
+    bars: [
+      { label: "Dasar", sublabel: "sebelum promo/ads", low: 5, high: 8, source: "Toco / Everpro / Mekari" },
+      { label: "+ Kategori & Dinamis", sublabel: "Shopee & TikTok Shop", low: 8, high: 12, source: "Tokopedia pra-ads" },
+      { label: "+ Promo & Ads Wajib", sublabel: "gratis ongkir / TopAds", low: 12, high: 20, source: "Tokopedia dgn TopAds" },
+      { label: "2026", sublabel: "bertumpuk penuh", low: 20, high: 25, source: "Toco / Everpro / Mekari, 2026" },
+    ],
+    note: "Grafik ilustratif — disusun dari rentang biaya yang dilaporkan sumber di atas, bukan kurva presisi per tahun.",
   },
 
   calc: {
@@ -95,16 +109,8 @@ const CONTENT = {
   leadForm: {
     eyebrow: "Sebelum Booking",
     title: "Isi form singkat dulu",
-    sub: "Kurang dari 5 menit. Setelah ini kita jadwalkan call 15 menit lewat WhatsApp — bukan sales pitch panjang.",
-    fields: {
-      name: { label: "Nama kamu", placeholder: "cth. Budi Santoso" },
-      brand: { label: "Nama brand / toko", placeholder: "cth. Kopi Kenangan Store" },
-      whatsapp: { label: "Nomor WhatsApp aktif", placeholder: "cth. 08123456789" },
-      revenue: { label: "Rata-rata omzet bulanan", options: ["< Rp10 juta", "Rp10–50 juta", "Rp50–150 juta", "> Rp150 juta"] },
-      channel: { label: "Jualan di mana sekarang?", options: ["Shopee", "Tokopedia", "TikTok Shop", "Instagram", "Lainnya"] },
-    },
-    submitLabel: "Kirim & Jadwalkan via WhatsApp",
-    fallbackLabel: "atau isi lewat Google Form",
+    sub: "Kurang dari 5 menit. Setelah ini kita jadwalkan call 15 menit — bukan sales pitch panjang.",
+    fallbackLabel: "Form tidak muncul? Buka di tab baru →",
   },
 
   bento: {
@@ -225,8 +231,7 @@ const CONTENT = {
     title: "Bukan Tim. Operator.",
     name: "Denis",
     role: "Founder, Natzach",
-    photoPlaceholder: true,
-    photoNote: "Foto asli menyusul",
+    photoUrl: "https://cdn.scalev.com/uploads/1783439129/LSlLKk3Oq_RtByD9IiEBUw/1783439130614-IMG_20241220_141256_812.webp",
     principles: [
       "Funnel dibangun untuk perilaku beli WhatsApp-first orang Indonesia, bukan playbook impor.",
       "Dijual sebagai hasil, bukan sekadar deliverable.",

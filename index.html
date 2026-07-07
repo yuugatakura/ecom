@@ -38,32 +38,10 @@
     <p class="eyebrow" id="modalEyebrow"></p>
     <h3 class="modal-title" id="modalTitle"></h3>
     <p class="modal-sub" id="modalSub"></p>
-    <form id="leadForm" class="lead-form">
-      <div class="field">
-        <label for="fName" id="lblName"></label>
-        <input type="text" id="fName" required>
-      </div>
-      <div class="field">
-        <label for="fBrand" id="lblBrand"></label>
-        <input type="text" id="fBrand" required>
-      </div>
-      <div class="field">
-        <label for="fWhatsapp" id="lblWhatsapp"></label>
-        <input type="tel" id="fWhatsapp" required>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="fRevenue" id="lblRevenue"></label>
-          <select id="fRevenue"></select>
-        </div>
-        <div class="field">
-          <label for="fChannel" id="lblChannel"></label>
-          <select id="fChannel"></select>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-accent btn-block btn-large" id="leadSubmit"></button>
-      <a class="modal-fallback" id="modalFallback" target="_blank" rel="noopener"></a>
-    </form>
+    <div class="form-embed-wrap">
+      <iframe id="formEmbed" src="" title="Form konsultasi Natzach" loading="lazy">Loading…</iframe>
+    </div>
+    <a class="modal-fallback" id="modalFallback" target="_blank" rel="noopener"></a>
   </div>
 </div>
 
@@ -109,6 +87,16 @@
         </div>
 
         <p class="leak-callout"><span id="leakCallout"></span> <cite id="leakCalloutSource"></cite></p>
+
+        <div class="fee-trend-block">
+          <p class="eyebrow" id="feeTrendEyebrow"></p>
+          <h3 class="calc-block-title" id="feeTrendTitle"></h3>
+          <p class="fee-trend-subtitle" id="feeTrendSubtitle"></p>
+          <div class="fee-trend-chart-wrap">
+            <div class="fee-trend-chart" id="feeTrendChart"></div>
+          </div>
+          <p class="calc-note" id="feeTrendNote"></p>
+        </div>
 
         <div class="calc-block">
           <p class="eyebrow" id="calcEyebrow"></p>

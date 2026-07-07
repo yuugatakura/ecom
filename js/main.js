@@ -30,8 +30,8 @@
       ICONS.instagram +
       "</a>" +
       '<a class="wa" href="' +
-      CONTENT.whatsappUrl +
-      '" target="_blank" rel="noopener" aria-label="WhatsApp Natzach">' +
+      CONTENT.ctaUrl +
+      '" target="_blank" rel="noopener" aria-label="Konsultasi Natzach">' +
       ICONS.whatsapp +
       "</a>";
   }
@@ -65,7 +65,7 @@
     });
 
     const waFloat = document.getElementById("waFloat");
-    if (waFloat) waFloat.href = CONTENT.whatsappUrl;
+    if (waFloat) waFloat.href = CONTENT.ctaUrl;
 
     const toggle = document.getElementById("navToggle");
     const mobile = document.getElementById("navMobile");
@@ -271,9 +271,12 @@
     document.getElementById("operatorEyebrow").textContent = op.eyebrow;
     document.getElementById("operatorTitle").textContent = op.title;
     document.getElementById("operatorName").textContent = op.name + " — " + op.role;
-    document.getElementById("operatorPhoto").textContent = op.photoPlaceholder
-      ? op.photoNote
-      : "";
+    const photoEl = document.getElementById("operatorPhoto");
+    if (op.photoUrl) {
+      photoEl.innerHTML = '<img src="' + op.photoUrl + '" alt="' + op.name + ', ' + op.role + '" loading="lazy">';
+    } else {
+      photoEl.textContent = op.photoNote || "";
+    }
 
     const list = document.getElementById("operatorPrinciples");
     op.principles.forEach((p) => {
@@ -361,6 +364,66 @@
     });
   }
 
+  /* ---------- fee trend chart ---------- */
+
+  function renderFeeTrend() {
+    const ft = CONTENT.feeTrend;
+    document.getElementById("feeTrendEyebrow").textContent = ft.eyebrow;
+    document.getElementById("feeTrendTitle").textContent = ft.title;
+    document.getElementById("feeTrendSubtitle").textContent = ft.subtitle;
+    document.getElementById("feeTrendNote").textContent = ft.note;
+
+    const W = 640;
+    const H = 300;
+    const plotLeft = 46;
+    const plotRight = W - 16;
+    const plotTop = 20;
+    const plotBottom = H - 60;
+    const plotHeight = plotBottom - plotTop;
+    const plotWidth = plotRight - plotLeft;
+    const maxVal = 25;
+    const gridVals = [0, 5, 10, 15, 20, 25];
+    const barCount = ft.bars.length;
+    const slotWidth = plotWidth / barCount;
+    const barWidth = slotWidth * 0.5;
+    const yFor = (v) => plotBottom - (v / maxVal) * plotHeight;
+    const FONT = "Inter, -apple-system, sans-serif";
+
+    let svg = '<svg viewBox="0 0 ' + W + " " + H + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grafik tren biaya marketplace 2020-2026">';
+
+    gridVals.forEach((v) => {
+      const y = yFor(v);
+      svg +=
+        '<line x1="' + plotLeft + '" y1="' + y + '" x2="' + plotRight + '" y2="' + y +
+        '" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>' +
+        '<text x="' + (plotLeft - 10) + '" y="' + (y + 4) + '" text-anchor="end" font-size="11" fill="#6f6d68" font-family="' + FONT + '">' + v + "%</text>";
+    });
+
+    ft.bars.forEach((bar, i) => {
+      const xCenter = plotLeft + slotWidth * (i + 0.5);
+      const xLeft = xCenter - barWidth / 2;
+      const yHigh = yFor(bar.high);
+      const yLow = yFor(bar.low);
+      svg +=
+        '<rect x="' + xLeft + '" y="' + yLow + '" width="' + barWidth + '" height="' + (plotBottom - yLow) + '" fill="rgba(255,255,255,0.10)"/>' +
+        '<rect x="' + xLeft + '" y="' + yHigh + '" width="' + barWidth + '" height="' + (yLow - yHigh) + '" fill="rgba(255,255,255,0.26)"/>' +
+        '<text x="' + xCenter + '" y="' + (yHigh - 12) + '" text-anchor="middle" font-size="15" font-weight="700" fill="#f5f4f1" font-family="' + FONT + '">' + bar.low + "–" + bar.high + "%</text>" +
+        '<text x="' + xCenter + '" y="' + (plotBottom + 22) + '" text-anchor="middle" font-size="12.5" font-weight="600" fill="#f5f4f1" font-family="' + FONT + '">' + bar.label + "</text>" +
+        '<text x="' + xCenter + '" y="' + (plotBottom + 38) + '" text-anchor="middle" font-size="10" fill="#6f6d68" font-family="' + FONT + '">' + bar.sublabel + "</text>";
+    });
+
+    const yOwned = yFor(ft.ownedValue);
+    svg +=
+      '<line x1="' + plotLeft + '" y1="' + yOwned + '" x2="' + plotRight + '" y2="' + yOwned +
+      '" stroke="#d9a441" stroke-width="2" stroke-dasharray="6,5"/>' +
+      '<text x="' + plotRight + '" y="' + (yOwned - 8) + '" text-anchor="end" font-size="12" font-weight="700" fill="#d9a441" font-family="' + FONT + '">' +
+      ft.ownedLabel + " — " + String(ft.ownedValue).replace(".", ",") + "%</text>";
+
+    svg += "</svg>";
+
+    document.getElementById("feeTrendChart").innerHTML = svg;
+  }
+
   /* ---------- calculator ---------- */
 
   function renderCalc() {
@@ -418,60 +481,21 @@
     document.getElementById("modalEyebrow").textContent = lf.eyebrow;
     document.getElementById("modalTitle").textContent = lf.title;
     document.getElementById("modalSub").textContent = lf.sub;
-    document.getElementById("lblName").textContent = lf.fields.name.label;
-    document.getElementById("lblBrand").textContent = lf.fields.brand.label;
-    document.getElementById("lblWhatsapp").textContent = lf.fields.whatsapp.label;
-    document.getElementById("lblRevenue").textContent = lf.fields.revenue.label;
-    document.getElementById("lblChannel").textContent = lf.fields.channel.label;
-    document.getElementById("fName").placeholder = lf.fields.name.placeholder;
-    document.getElementById("fBrand").placeholder = lf.fields.brand.placeholder;
-    document.getElementById("fWhatsapp").placeholder = lf.fields.whatsapp.placeholder;
 
-    const revenueSel = document.getElementById("fRevenue");
-    lf.fields.revenue.options.forEach((opt) => {
-      const o = document.createElement("option");
-      o.textContent = opt;
-      revenueSel.appendChild(o);
-    });
-
-    const channelSel = document.getElementById("fChannel");
-    lf.fields.channel.options.forEach((opt) => {
-      const o = document.createElement("option");
-      o.textContent = opt;
-      channelSel.appendChild(o);
-    });
-
-    document.getElementById("leadSubmit").textContent = lf.submitLabel;
     const fallback = document.getElementById("modalFallback");
     fallback.textContent = lf.fallbackLabel;
     fallback.href = CONTENT.ctaUrl;
-
-    document.getElementById("leadForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("fName").value.trim();
-      const brand = document.getElementById("fBrand").value.trim();
-      const whatsapp = document.getElementById("fWhatsapp").value.trim();
-      const revenue = document.getElementById("fRevenue").value;
-      const channel = document.getElementById("fChannel").value;
-
-      const message =
-        "Halo Natzach, saya mau konsultasi gratis.\n\n" +
-        "Nama: " + name + "\n" +
-        "Brand: " + brand + "\n" +
-        "Omzet bulanan: " + revenue + "\n" +
-        "Jualan di: " + channel + "\n" +
-        "WhatsApp saya: " + whatsapp;
-
-      const waLink = CONTENT.whatsappUrl + "?text=" + encodeURIComponent(message);
-      window.open(waLink, "_blank", "noopener");
-      closeModal();
-      e.target.reset();
-    });
   }
+
+  let formEmbedLoaded = false;
 
   function openModal(e) {
     if (e) e.preventDefault();
     const overlay = document.getElementById("modalOverlay");
+    if (!formEmbedLoaded) {
+      document.getElementById("formEmbed").src = CONTENT.formEmbedUrl;
+      formEmbedLoaded = true;
+    }
     overlay.classList.add("open");
     document.body.style.overflow = "hidden";
   }
@@ -523,6 +547,7 @@
     renderNav();
     renderHero();
     renderLeak();
+    renderFeeTrend();
     renderCalc();
     renderPainGrid();
     renderBento();
