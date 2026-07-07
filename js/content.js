@@ -280,7 +280,7 @@ const CONTENT = {
 
   aboutUs: {
     eyebrow: "Tentang Kami",
-    text: "Natzach dibangun untuk satu tujuan: membantu brand e-commerce Indonesia memiliki infrastruktur dan ekosistem mereka sendiri, termasuk namun tidak terbatas pada toko, traffic, dan database pelanggan — dan bukan sekadar menyewa traffic dari marketplace.",
+    text: "Misi kami adalah membantu brand e-commerce Indonesia untuk tidak ketergantungan pada marketplace dengan memiliki Infrastruktur dan Ekosistem sendiri; yang mencakup namun tidak terbatas pada toko, traffic, dan database pelanggan — tujuannya satu: untuk jadi #LebihProfitable.",
     instagramLabel: "Ikuti proses kami untuk mentransformasi Brand jadi #LebihProfitable di Instagram →",
     instagramUrl: "https://instagram.com/denamshin",
   },
