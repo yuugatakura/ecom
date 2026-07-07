@@ -20,7 +20,7 @@ const CONTENT = {
 
   hero: {
     headline: "Setiap transaksi, marketplace ambil bagian mereka dulu.",
-    sub: "Baru sisanya jadi punya kamu. Kami bangun toko, mesin traffic, dan daftar pelanggan yang sepenuhnya kamu miliki — supaya margin yang selama ini “numpang jualan” ke marketplace, balik ke kantong kamu & jadi #LebihProfitable.",
+    sub: "Misi kami adalah menggandeng Brand Owners punya Channel Penjualan yang sepenuhnya kamu miliki — supaya margin yang selama ini lari ke marketplace, balik ke kantong kamu dan jadi #LebihProfitable.",
     ctaMicrocopy: "Konsultasi gratis · Tanpa komitmen · Respons dalam 24 jam",
     secondaryLabel: "Lihat cara kerjanya",
     secondaryHref: "#cara-kerja",

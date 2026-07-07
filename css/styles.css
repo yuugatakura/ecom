@@ -321,6 +321,10 @@ ol {
   max-width: 760px;
 }
 
+.text-accent {
+  color: var(--accent);
+}
+
 .hero-headline {
   font-size: var(--fs-hero);
   font-weight: 700;
@@ -1203,13 +1207,14 @@ ol {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--accent);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s var(--ease);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s var(--ease);
 }
 
 @media (hover: hover) {
   .about-us-link:hover {
-    border-color: var(--accent);
+    opacity: 0.8;
   }
 }
 

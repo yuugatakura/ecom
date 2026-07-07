@@ -109,9 +109,16 @@
 
   /* ---------- hero ---------- */
 
+  function highlightAccent(text, phrase) {
+    return text.replace(phrase, '<span class="text-accent">' + phrase + "</span>");
+  }
+
   function renderHero() {
-    document.getElementById("heroHeadline").textContent = CONTENT.hero.headline;
-    document.getElementById("heroSub").textContent = CONTENT.hero.sub;
+    document.getElementById("heroHeadline").innerHTML = highlightAccent(
+      CONTENT.hero.headline,
+      "ambil bagian mereka"
+    );
+    document.getElementById("heroSub").innerHTML = highlightAccent(CONTENT.hero.sub, "#LebihProfitable");
     document.getElementById("heroMicrocopy").textContent = CONTENT.hero.ctaMicrocopy;
 
     const secondary = document.getElementById("heroSecondary");
