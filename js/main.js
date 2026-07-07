@@ -52,20 +52,15 @@
       navMobileLinks.appendChild(a2);
     });
 
-    renderSocialIcons("socialIcons");
-    renderSocialIcons("socialIconsMobile");
     renderSocialIcons("socialIconsFooter");
 
-    ["navCta", "navCtaMobile", "heroCta", "finalCta"].forEach((id) => {
+    ["heroCta", "finalCta"].forEach((id) => {
       const el = document.getElementById(id);
       if (el) {
         el.textContent = CONTENT.ctaLabel;
         el.addEventListener("click", openModal);
       }
     });
-
-    const waFloat = document.getElementById("waFloat");
-    if (waFloat) waFloat.href = CONTENT.ctaUrl;
 
     const toggle = document.getElementById("navToggle");
     const mobile = document.getElementById("navMobile");
@@ -125,13 +120,17 @@
       const li = document.createElement("li");
       const swatch = greys[i % greys.length];
       li.innerHTML =
-        '<span class="leak-legend-label"><span class="leak-legend-swatch" style="background:' +
+        '<span class="leak-legend-swatch" style="background:' +
         swatch +
         '"></span>' +
+        '<span class="leak-legend-text">' +
+        '<span class="leak-legend-title">' +
         seg.label +
+        "</span>" +
         '<span class="leak-legend-source">' +
         seg.source +
-        "</span></span>" +
+        "</span>" +
+        "</span>" +
         '<span class="leak-legend-amount tnum">' +
         rupiah(seg.amount) +
         "</span>";
@@ -273,8 +272,10 @@
     document.getElementById("operatorName").textContent = op.name + " — " + op.role;
     const photoEl = document.getElementById("operatorPhoto");
     if (op.photoUrl) {
+      photoEl.classList.remove("is-placeholder");
       photoEl.innerHTML = '<img src="' + op.photoUrl + '" alt="' + op.name + ', ' + op.role + '" loading="lazy">';
     } else {
+      photoEl.classList.add("is-placeholder");
       photoEl.textContent = op.photoNote || "";
     }
 
@@ -333,6 +334,17 @@
     });
   }
 
+  /* ---------- about us ---------- */
+
+  function renderAboutUs() {
+    const au = CONTENT.aboutUs;
+    document.getElementById("aboutEyebrow").textContent = au.eyebrow;
+    document.getElementById("aboutText").textContent = au.text;
+    const link = document.getElementById("aboutInstagramLink");
+    link.textContent = au.instagramLabel;
+    link.href = au.instagramUrl;
+  }
+
   /* ---------- footer ---------- */
 
   function renderFooter() {
@@ -374,10 +386,10 @@
     document.getElementById("feeTrendNote").textContent = ft.note;
 
     const W = 640;
-    const H = 300;
+    const H = 320;
     const plotLeft = 46;
     const plotRight = W - 16;
-    const plotTop = 20;
+    const plotTop = 40;
     const plotBottom = H - 60;
     const plotHeight = plotBottom - plotTop;
     const plotWidth = plotRight - plotLeft;
@@ -408,8 +420,8 @@
         '<rect x="' + xLeft + '" y="' + yLow + '" width="' + barWidth + '" height="' + (plotBottom - yLow) + '" fill="rgba(255,255,255,0.10)"/>' +
         '<rect x="' + xLeft + '" y="' + yHigh + '" width="' + barWidth + '" height="' + (yLow - yHigh) + '" fill="rgba(255,255,255,0.26)"/>' +
         '<text x="' + xCenter + '" y="' + (yHigh - 12) + '" text-anchor="middle" font-size="15" font-weight="700" fill="#f5f4f1" font-family="' + FONT + '">' + bar.low + "–" + bar.high + "%</text>" +
-        '<text x="' + xCenter + '" y="' + (plotBottom + 22) + '" text-anchor="middle" font-size="12.5" font-weight="600" fill="#f5f4f1" font-family="' + FONT + '">' + bar.label + "</text>" +
-        '<text x="' + xCenter + '" y="' + (plotBottom + 38) + '" text-anchor="middle" font-size="10" fill="#6f6d68" font-family="' + FONT + '">' + bar.sublabel + "</text>";
+        '<text x="' + xCenter + '" y="' + (plotBottom + 22) + '" text-anchor="middle" font-size="13.5" font-weight="600" fill="#f5f4f1" font-family="' + FONT + '">' + bar.label + "</text>" +
+        '<text class="fee-chart-sublabel" x="' + xCenter + '" y="' + (plotBottom + 38) + '" text-anchor="middle" font-size="10" fill="#6f6d68" font-family="' + FONT + '">' + bar.sublabel + "</text>";
     });
 
     const yOwned = yFor(ft.ownedValue);
@@ -417,7 +429,7 @@
       '<line x1="' + plotLeft + '" y1="' + yOwned + '" x2="' + plotRight + '" y2="' + yOwned +
       '" stroke="#d9a441" stroke-width="2" stroke-dasharray="6,5"/>' +
       '<text x="' + plotRight + '" y="' + (yOwned - 8) + '" text-anchor="end" font-size="12" font-weight="700" fill="#d9a441" font-family="' + FONT + '">' +
-      ft.ownedLabel + " — " + String(ft.ownedValue).replace(".", ",") + "%</text>";
+      ft.ownedLabel + ": " + String(ft.ownedValue).replace(".", ",") + "%</text>";
 
     svg += "</svg>";
 
@@ -558,6 +570,7 @@
     renderOperator();
     renderFaq();
     renderFinalCta();
+    renderAboutUs();
     renderFooter();
     initReveal();
   }

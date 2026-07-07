@@ -45,12 +45,12 @@ const CONTENT = {
     eyebrow: "Tren Biaya",
     title: "Biaya marketplace bergerak satu arah: naik.",
     subtitle: "Estimasi kumulatif dari kebijakan yang benar-benar terdokumentasi. Belum termasuk biaya iklan.",
-    ownedLabel: "Website Kamu",
+    ownedLabel: "Kanal Sendiri (Website Kamu)",
     ownedValue: 2.5,
     bars: [
       { label: "Dasar", sublabel: "sebelum promo/ads", low: 5, high: 8, source: "Toco / Everpro / Mekari" },
-      { label: "+ Kategori & Dinamis", sublabel: "Shopee & TikTok Shop", low: 8, high: 12, source: "Tokopedia pra-ads" },
-      { label: "+ Promo & Ads Wajib", sublabel: "gratis ongkir / TopAds", low: 12, high: 20, source: "Tokopedia dgn TopAds" },
+      { label: "+Kategori", sublabel: "Shopee & TikTok Shop", low: 8, high: 12, source: "Tokopedia pra-ads" },
+      { label: "+Promo/Ads", sublabel: "gratis ongkir / TopAds", low: 12, high: 20, source: "Tokopedia dgn TopAds" },
       { label: "2026", sublabel: "bertumpuk penuh", low: 20, high: 25, source: "Toco / Everpro / Mekari, 2026" },
     ],
     note: "Grafik ilustratif — disusun dari rentang biaya yang dilaporkan sumber di atas, bukan kurva presisi per tahun.",
@@ -274,6 +274,13 @@ const CONTENT = {
       "Dijadwalkan via WhatsApp",
       "Bahas angka, bukan harga paket",
     ],
+  },
+
+  aboutUs: {
+    eyebrow: "Tentang Kami",
+    text: "Natzach dibangun untuk satu tujuan: membantu brand e-commerce Indonesia memiliki infrastruktur akuisisi mereka sendiri — toko, traffic, dan pelanggan — bukan sekadar menyewa traffic dari marketplace. Dijalankan langsung oleh satu operator, bukan tim besar.",
+    instagramLabel: "Ikuti proses buildingnya di Instagram →",
+    instagramUrl: "https://instagram.com/denamshin",
   },
 
   footer: {
