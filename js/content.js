@@ -7,8 +7,12 @@ const CONTENT = {
   brand: "Natzach",
   ctaUrl: "https://forms.gle/YfDsRiTDpDApv93T7",
   ctaLabel: "Book Free Consultation",
+  whatsappNumber: "6285778139876",
+  instagramUrl: "https://instagram.com/natzach.id",
+  whatsappUrl: "https://wa.me/6285778139876",
 
   nav: [
+    { label: "Kalkulator", href: "#kalkulator" },
     { label: "Cara Kerja", href: "#cara-kerja" },
     { label: "Bukti Kerja", href: "#bukti-kerja" },
     { label: "Kenapa Beda", href: "#kenapa-beda" },
@@ -38,24 +42,93 @@ const CONTENT = {
     },
   },
 
+  calc: {
+    eyebrow: "Coba Sendiri",
+    title: "Masukkan omzet bulananmu",
+    inputLabel: "Omzet bulanan (Rp)",
+    defaultValue: 100000000,
+    marketplaceLowPct: 0.10,
+    marketplaceHighPct: 0.25,
+    ownedPct: 0.025,
+    marketLabel: "Potongan marketplace / bulan",
+    ownedLabel: "Biaya di kanal sendiri / bulan",
+    savingsLabel: "Berpotensi kamu selamatkan / bulan",
+    savingsYearPrefix: "Setara ~",
+    savingsYearSuffix: " / tahun",
+    note: "Dihitung langsung di browser kamu — tidak ada data yang dikirim ke mana pun. Estimasi berbasis 10–25% potongan marketplace (Toco/Everpro/Mekari) vs ~2,5% payment gateway lokal (Midtrans/Xendit).",
+  },
+
+  painGrid: {
+    eyebrow: "Masih Jualan 100% di Marketplace?",
+    title: "Empat hal yang diam-diam menahan bisnismu",
+    items: [
+      {
+        stat: "10–25%",
+        title: "Potongan naik, bukan turun",
+        body: "Biaya bertumpuk tiap tahun — komisi, biaya proses pesanan, promo/ongkir wajib. Belum ada tanda akan berhenti.",
+        tag: "Rising fees",
+        source: "Toco / Everpro / Mekari, 2026",
+      },
+      {
+        stat: "Nol",
+        title: "Data pelanggan yang kamu pegang",
+        body: "Nomor WhatsApp & histori beli ada di platform, bukan di kamu — program loyalitas atau retargeting harus mulai dari nol kalau pindah kanal.",
+        tag: "No retention",
+        source: "Nailul Huda, ekonom CELIOS — UKMIndonesia.id, 13 Mei 2026",
+      },
+      {
+        stat: "Tak Pasti",
+        title: "Traffic yang bukan milikmu",
+        body: "Ketergantungan pada algoritma dan posisi di antara lusinan kompetitor identik jadi alasan struktural untuk punya kanal sendiri.",
+        tag: "No control",
+      },
+      {
+        stat: "Sepihak",
+        title: "Kebijakan yang bisa berubah kapan saja",
+        body: "“Marketplace itu milik orang lain. Kalau suatu saat akun kamu dibekukan atau marketplace-nya berubah kebijakan, bisnis kamu bisa langsung kena dampaknya.”",
+        tag: "Platform risk",
+        source: "Crosstechno",
+      },
+    ],
+  },
+
+  leadForm: {
+    eyebrow: "Sebelum Booking",
+    title: "Isi form singkat dulu",
+    sub: "Kurang dari 5 menit. Setelah ini kita jadwalkan call 15 menit lewat WhatsApp — bukan sales pitch panjang.",
+    fields: {
+      name: { label: "Nama kamu", placeholder: "cth. Budi Santoso" },
+      brand: { label: "Nama brand / toko", placeholder: "cth. Kopi Kenangan Store" },
+      whatsapp: { label: "Nomor WhatsApp aktif", placeholder: "cth. 08123456789" },
+      revenue: { label: "Rata-rata omzet bulanan", options: ["< Rp10 juta", "Rp10–50 juta", "Rp50–150 juta", "> Rp150 juta"] },
+      channel: { label: "Jualan di mana sekarang?", options: ["Shopee", "Tokopedia", "TikTok Shop", "Instagram", "Lainnya"] },
+    },
+    submitLabel: "Kirim & Jadwalkan via WhatsApp",
+    fallbackLabel: "atau isi lewat Google Form",
+  },
+
   bento: {
     eyebrow: "Cara Kerja",
     title: "Yang selama ini kamu “sewa”, versus yang bisa kamu miliki",
     tiles: [
       {
         anchor: true,
+        icon: "store",
         title: "Toko yang sepenuhnya milikmu",
         body: "Domain, data pelanggan, tampilan brand — tidak bisa dibekukan sepihak. Terhubung ke payment gateway lokal (Midtrans/Xendit) dan kurir pilihanmu.",
       },
       {
+        icon: "traffic",
         title: "Mesin traffic yang tidak bergantung pada algoritma orang lain",
         body: "Funnel Meta & Google yang kamu kendalikan sendiri targeting-nya.",
       },
       {
+        icon: "customers",
         title: "Daftar pelanggan sendiri",
         body: "WhatsApp broadcast & database pembeli yang bisa dihubungi ulang nyaris tanpa biaya iklan.",
       },
       {
+        icon: "repeat",
         title: "Sistem repeat order",
         body: "Flow pembelian ulang & loyalitas — jualan ke orang yang sama tanpa bayar iklan lagi.",
       },
