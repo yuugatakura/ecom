@@ -235,9 +235,9 @@ const CONTENT = {
     role: "Founder, Natzach",
     photoUrl: "https://cdn.scalev.com/uploads/1783439129/LSlLKk3Oq_RtByD9IiEBUw/1783439130614-IMG_20241220_141256_812.webp",
     principles: [
-      "Funnel dibangun untuk perilaku beli WhatsApp-first orang Indonesia, bukan playbook impor.",
-      "Dijual sebagai hasil, bukan sekadar deliverable.",
-      "Kapasitas sengaja dibatasi supaya klien awal dapat perhatian langsung dari founder.",
+      "Bukan bikin toko online. Bikin infrastruktur: toko + traffic engine + audience yang lo kontrol sendiri.",
+      "Kapasitas terbatas supaya kamu dapet perhatian penuh dari kami langsung, bukan tim junior.",
+      "Operator Berpengalaman di Sistem yang sudah proven di vertical lainnya.",
     ],
   },
 

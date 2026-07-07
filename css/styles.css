@@ -1017,7 +1017,7 @@ ol {
 
 .operator-principles li {
   font-size: 0.9375rem;
-  color: var(--text-muted);
+  color: #ffffff;
   padding-left: 20px;
   position: relative;
 }
