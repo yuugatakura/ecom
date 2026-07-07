@@ -18,6 +18,37 @@
       '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.693.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.477 2 12c0 1.86.505 3.605 1.383 5.104L2 22l5.03-1.352A9.958 9.958 0 0012.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2zm0 18.111c-1.655 0-3.194-.487-4.489-1.322l-.322-.198-2.988.803.813-2.909-.211-.328A8.086 8.086 0 013.889 12c0-4.472 3.64-8.111 8.112-8.111 4.471 0 8.111 3.639 8.111 8.111 0 4.472-3.64 8.111-8.111 8.111z"/></svg>',
   };
 
+  /* proof-card background motifs — abstract SVG, not stock photography */
+  const MOCK_VISUALS = {
+    trading:
+      '<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">' +
+      '<line x1="0" y1="40" x2="300" y2="40" stroke="rgba(255,255,255,0.05)"/>' +
+      '<line x1="0" y1="80" x2="300" y2="80" stroke="rgba(255,255,255,0.05)"/>' +
+      '<line x1="0" y1="120" x2="300" y2="120" stroke="rgba(255,255,255,0.05)"/>' +
+      '<g stroke-width="1.5">' +
+      '<line x1="26" y1="95" x2="26" y2="125" stroke="rgba(255,255,255,0.22)"/><rect x="20" y="105" width="12" height="15" fill="rgba(255,255,255,0.14)"/>' +
+      '<line x1="58" y1="85" x2="58" y2="115" stroke="rgba(217,164,65,0.55)"/><rect x="52" y="90" width="12" height="18" fill="rgba(217,164,65,0.4)"/>' +
+      '<line x1="90" y1="70" x2="90" y2="100" stroke="rgba(255,255,255,0.22)"/><rect x="84" y="75" width="12" height="20" fill="rgba(255,255,255,0.14)"/>' +
+      '<line x1="122" y1="60" x2="122" y2="90" stroke="rgba(217,164,65,0.55)"/><rect x="116" y="65" width="12" height="17" fill="rgba(217,164,65,0.4)"/>' +
+      '<line x1="154" y1="50" x2="154" y2="78" stroke="rgba(217,164,65,0.55)"/><rect x="148" y="55" width="12" height="15" fill="rgba(217,164,65,0.4)"/>' +
+      '<line x1="186" y1="40" x2="186" y2="68" stroke="rgba(255,255,255,0.22)"/><rect x="180" y="45" width="12" height="18" fill="rgba(255,255,255,0.14)"/>' +
+      '<line x1="218" y1="25" x2="218" y2="55" stroke="rgba(217,164,65,0.55)"/><rect x="212" y="30" width="12" height="18" fill="rgba(217,164,65,0.4)"/>' +
+      '<line x1="250" y1="15" x2="250" y2="45" stroke="rgba(217,164,65,0.55)"/><rect x="244" y="18" width="12" height="17" fill="rgba(217,164,65,0.4)"/>' +
+      '<line x1="278" y1="8" x2="278" y2="35" stroke="rgba(217,164,65,0.55)"/><rect x="272" y="10" width="12" height="15" fill="rgba(217,164,65,0.4)"/>' +
+      "</g>" +
+      '<polyline points="26,112 58,99 90,85 122,73 154,62 186,54 218,39 250,26 278,17" fill="none" stroke="rgba(217,164,65,0.5)" stroke-width="1" stroke-dasharray="3 3"/>' +
+      "</svg>",
+    japan:
+      '<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">' +
+      '<circle cx="150" cy="58" r="40" fill="rgba(217,164,65,0.10)" stroke="rgba(217,164,65,0.3)" stroke-width="1"/>' +
+      '<path d="M76,52 Q150,30 224,52 L224,63 Q150,43 76,63 Z" fill="rgba(255,255,255,0.16)"/>' +
+      '<rect x="95" y="58" width="9" height="76" fill="rgba(255,255,255,0.16)"/>' +
+      '<rect x="196" y="58" width="9" height="76" fill="rgba(255,255,255,0.16)"/>' +
+      '<rect x="90" y="78" width="120" height="7" fill="rgba(255,255,255,0.16)"/>' +
+      '<line x1="0" y1="134" x2="300" y2="134" stroke="rgba(255,255,255,0.06)"/>' +
+      "</svg>",
+  };
+
   /* ---------- header / nav ---------- */
 
   function renderSocialIcons(containerId) {
@@ -186,7 +217,9 @@
       el.className = "proof-card reveal" + (card.open ? " open" : "");
       el.innerHTML =
         '<div class="proof-card-mock">' +
-        (card.open ? '<span class="proof-card-mock-plus">+</span>' : "") +
+        (card.open
+          ? '<span class="proof-card-mock-plus">+</span>'
+          : MOCK_VISUALS[card.visual] || "") +
         '</div><div class="proof-card-body"><p class="proof-card-tag">' +
         card.tag +
         '</p><h3 class="proof-card-title">' +

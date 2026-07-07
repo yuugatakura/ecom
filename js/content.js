@@ -20,7 +20,7 @@ const CONTENT = {
 
   hero: {
     headline: "Setiap transaksi, marketplace ambil bagian mereka dulu.",
-    sub: "Baru sisanya jadi punya kamu. Kami bangun toko, mesin traffic, dan daftar pelanggan yang sepenuhnya kamu miliki — supaya margin yang selama ini “numpang jualan” ke marketplace, balik ke kantong kamu.",
+    sub: "Baru sisanya jadi punya kamu. Kami bangun toko, mesin traffic, dan daftar pelanggan yang sepenuhnya kamu miliki — supaya margin yang selama ini “numpang jualan” ke marketplace, balik ke kantong kamu & jadi #LebihProfitable.",
     ctaMicrocopy: "Konsultasi gratis · Tanpa komitmen · Respons dalam 24 jam",
     secondaryLabel: "Lihat cara kerjanya",
     secondaryHref: "#cara-kerja",
@@ -115,7 +115,7 @@ const CONTENT = {
 
   bento: {
     eyebrow: "Cara Kerja",
-    title: "Yang selama ini kamu “sewa”, versus yang bisa kamu miliki",
+    title: "Yang selama ini kamu “sewa” vs. yang bisa kamu miliki:",
     tiles: [
       {
         anchor: true,
@@ -148,13 +148,15 @@ const CONTENT = {
     cards: [
       {
         tag: "Investment Education",
-        title: "Angel Prime Circle",
-        body: "Website & funnel untuk komunitas edukasi investasi milik Angelica Jonatan.",
+        title: "TradingSahamWithAngel",
+        body: "Website Edukasi + Funnel Komunitas Investasi & Trading dari Angelica Jonatan.",
+        visual: "trading",
       },
       {
         tag: "Education / VSL Funnel",
-        title: "JLPT Accelerator",
-        body: "VSL + funnel kualifikasi lead untuk produk edukasi bahasa Jepang — asal-usul langsung dari logika qualification-funnel yang dipakai ulang di sini.",
+        title: "JLPT Accelerator by JLPTFinalBoss",
+        body: "Program Belajar Bahasa Jepang untuk Pekerja Indonesia yang mau kerja di Jepang sebagai Imigran.",
+        visual: "japan",
       },
       {
         tag: "Slot terbuka",
@@ -278,8 +280,8 @@ const CONTENT = {
 
   aboutUs: {
     eyebrow: "Tentang Kami",
-    text: "Natzach dibangun untuk satu tujuan: membantu brand e-commerce Indonesia memiliki infrastruktur akuisisi mereka sendiri — toko, traffic, dan pelanggan — bukan sekadar menyewa traffic dari marketplace. Dijalankan langsung oleh satu operator, bukan tim besar.",
-    instagramLabel: "Ikuti proses buildingnya di Instagram →",
+    text: "Natzach dibangun untuk satu tujuan: membantu brand e-commerce Indonesia memiliki infrastruktur dan ekosistem mereka sendiri, termasuk namun tidak terbatas pada toko, traffic, dan database pelanggan — dan bukan sekadar menyewa traffic dari marketplace.",
+    instagramLabel: "Ikuti proses kami untuk mentransformasi Brand jadi #LebihProfitable di Instagram →",
     instagramUrl: "https://instagram.com/denamshin",
   },
 
