@@ -1430,7 +1430,7 @@ ol {
   margin-top: 20px;
   border-radius: 14px;
   overflow: hidden;
-  background: #fff;
+  background: var(--bg-elevated-2);
   border: 1px solid var(--border-strong);
 }
 

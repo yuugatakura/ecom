@@ -5,9 +5,9 @@
  */
 const CONTENT = {
   brand: "Natzach",
-  ctaUrl: "https://forms.gle/YfDsRiTDpDApv93T7",
+  ctaUrl: "https://tally.so/r/VLyxeM",
   ctaLabel: "Book Free Consultation",
-  formEmbedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfgYHrsGM7-hmVvpRjjOBUpUWM0cxRs7cvWYUms8UfdIfslfQ/viewform?embedded=true",
+  formEmbedUrl: "https://tally.so/r/VLyxeM?transparentBackground=1&formEventsForwarding=1",
   instagramUrl: "https://instagram.com/natzach.id",
 
   nav: [

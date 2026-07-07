@@ -545,7 +545,13 @@
     if (e) e.preventDefault();
     const overlay = document.getElementById("modalOverlay");
     if (!formEmbedLoaded) {
-      document.getElementById("formEmbed").src = CONTENT.formEmbedUrl;
+      const iframe = document.getElementById("formEmbed");
+      iframe.dataset.tallySrc = CONTENT.formEmbedUrl;
+      if (window.Tally) {
+        window.Tally.loadEmbeds();
+      } else {
+        iframe.src = iframe.dataset.tallySrc;
+      }
       formEmbedLoaded = true;
     }
     overlay.classList.add("open");
